@@ -8,7 +8,6 @@ from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.views.generic import ListView, DetailView, CreateView
 
-from fieldsapp.admin import download_csv
 from .models import Post
 from django.urls import reverse_lazy
 from .forms import PostForm

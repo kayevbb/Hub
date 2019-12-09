@@ -16,19 +16,22 @@ STATUS_CHOICES = [
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=200)
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE,)
+    username = models.CharField(max_length=70, verbose_name='ФИО')
+    number = models.CharField(max_length=20, verbose_name='Телефон')
+    email = models.CharField(max_length=50, verbose_name='Email')
     body = models.TextField()
     owner = models.CharField(max_length=150)
     cost = models.CharField(max_length=100)
     shower = models.CharField(max_length=100)
     parking = models.CharField(max_length=100)
     locker_room = models.CharField(max_length=100)
-    date_pub = models.DateTimeField('date_pulished', default=timezone.now())
+    date_pub = models.DateTimeField(auto_now_add=True)
     statuss = models.CharField(max_length=1, choices=STATUS_CHOICES)
     cover = models.ImageField(upload_to='images/')
     cover2 = models.ImageField(upload_to='images/')
     status = models.BooleanField(default=False)
+
 
 
     def __str__(self):
